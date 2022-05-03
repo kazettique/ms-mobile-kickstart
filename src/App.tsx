@@ -1,15 +1,18 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import GamePage from './pages/GamePage';
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to React Router!</h1>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
+    <div className="h-screen w-screen">
       <Routes>
-        <Route path="/" element={<div>home component</div>} />
-        <Route path="about" element={<div>about component</div>} />
+        <Route index element={<LoginPage />} />
+        <Route path="mainPage/*" element={<MainPage />} />
+        <Route path="gamePage/*" element={<GamePage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
